@@ -1,0 +1,30 @@
+<project name="EHRTests" default="LOGIN-SMOKE" basedir=".">
+    <property name="lib.dir" value="./lib"/>
+    <property name="target.dir" value="./target/classes"/>
+    <property name="target.tests.dir" value="./target/test-classes"/>
+    <property name="output.dir" value="./test-output"/>
+    <property name="working.dir" value="."/>
+    <property name="data.dir" value="./config/testsuites"/>
+    <property name="version" value="1.0"/>
+
+    <path id="cpath">
+        <pathelement location="${lib.dir}/*"/>
+        <pathelement path="${target.dir}"/>
+        <pathelement path="${target.tests.dir}"/>
+    </path>
+
+    <!-- RUN TESTS-->
+    <taskdef resource="testngtasks" classpath="${lib.dir}/testng-6.9.10.jar"/>
+
+
+    <target name="LOGIN-SMOKE">
+        <testng classpathref="cpath" outputDir="${output.dir}"	workingDir="${working.dir}"	 verbose="2" useDefaultListeners="true"
+                delegateCommandSystemProperties="true">
+            <xmlfileset dir="${data.dir}" includes="Login-Smoke.xml" />
+            <jvmarg value="-Xmx512m"/>
+            <!--sysproperty usage showing error, so using delegation command system property to pass parameters/arguments to testng xml file-->
+            <!--    <sysproperty key="userName" value="${userNmae}"/>
+                    <sysproperty key="password" value="${password}"/>-->
+        </testng>
+    </target>
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Gmail Test Suite">
+
+    <!--<listeners>
+        <listener class-name="com.kareo.ehr.listener.TestListener" />
+        <listener class-name="com.kareo.ehr.listener.NewEmailReportListener" />
+        <listener class-name="com.kareo.ehr.listener.suitelistener.MySuiteListener" />
+    </listeners>-->
+    <parameter name="username" value="${userName}"/>
+    <parameter name="password" value="${password}"/>
+
+	<test name="GMAIL" preserve-order="true">
+        <classes>
+			<class name="com.frameworkscratch.LoginTests"/>
+		</classes>
+	</test>
+</suite>
