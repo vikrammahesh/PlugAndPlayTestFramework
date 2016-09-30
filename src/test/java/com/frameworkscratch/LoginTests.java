@@ -17,6 +17,8 @@ public class LoginTests extends TestBase{
     public WebDriver driver;
     String mail;
     String pwd;
+    HomePage home;
+    SignInPage login;
 
     @BeforeClass
     @Parameters({"username","password"})
@@ -31,11 +33,17 @@ public class LoginTests extends TestBase{
         UtilityLibrary utilLib=new UtilityLibrary();
         log.info(utilLib.generateRandomEmail());
         driver.get("http://gmail.com");
-        SignInPage login = new SignInPage(driver);
+        login = new SignInPage(driver);
         login.login(mail, pwd);
-        HomePage home = login.clickSignIn();
+        home = login.clickSignIn();
         Assert.assertTrue(home.getGoogleAccountTitle().contains(mail), "Not logged in with account..." + mail);
         log.info("User logged into Gmail with :" + mail);
+    }
+
+    @Test
+    public void verifyLogout(){
+        home.clickSignout();
+        Assert.assertTrue(login.verifySignInPage(), "Account was not signout");
     }
 
     @AfterClass

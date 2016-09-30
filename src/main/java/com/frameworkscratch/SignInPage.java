@@ -61,4 +61,9 @@ public class SignInPage {
         log.info("Clicked on Sign in and navigated to Home page");
         return new HomePage(driver);
     }
+
+    public boolean verifySignInPage(){
+        Utility.verifyElementVisible(driver,signIn);
+        return signIn.isDisplayed();
+    }
 }

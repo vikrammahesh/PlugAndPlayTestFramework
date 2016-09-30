@@ -11,6 +11,8 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
  * Created by maheshv on 8/23/2016.
  */
 public class HomePage {
+
+    SignInPage login;
     Logger log= Logger.getLogger(HomePage.class);
 
     @FindBy(xpath="//div[text()='COMPOSE']")
@@ -18,6 +20,8 @@ public class HomePage {
 
     @FindBy(css ="a[title*='Google Account:']")
     WebElement title;
+
+    @FindBy(xpath="//a[text()='Sign out']") WebElement signout;
 
     WebDriver driver;
     public HomePage(WebDriver driver){
@@ -30,4 +34,12 @@ public class HomePage {
         log.info("Captured account title");
         return title.getAttribute("title");
     }
+
+    public void clickSignout(){
+        Utility.verifyElementVisible(driver,title);
+        title.click();
+        Utility.verifyElementVisible(driver,signout);
+        signout.click();
+    }
+
 }

@@ -1,4 +1,4 @@
-<project name="EHRTests" default="LOGIN-SMOKE" basedir=".">
+<project name="GMAILTests" default="LOGIN-SMOKE" basedir=".">
     <property name="lib.dir" value="./lib"/>
     <property name="target.dir" value="./target/classes"/>
     <property name="target.tests.dir" value="./target/test-classes"/>

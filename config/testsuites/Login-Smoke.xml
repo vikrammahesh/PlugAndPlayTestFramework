@@ -7,8 +7,8 @@
         <listener class-name="com.kareo.ehr.listener.NewEmailReportListener" />
         <listener class-name="com.kareo.ehr.listener.suitelistener.MySuiteListener" />
     </listeners>-->
-    <parameter name="username" value="${userName}"/>
-    <parameter name="password" value="${password}"/>
+    <parameter name="username" value="mahesh.vikram@imaginea.com"/>
+    <parameter name="password" value="Value*12"/>
 
 	<test name="GMAIL" preserve-order="true">
         <classes>
